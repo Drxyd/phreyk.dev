@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon · My Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #faf9f8;
+      background-image: radial-gradient(circle at 30% 10%, rgba(230, 240, 255, 0.7) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 80%, rgba(235, 225, 245, 0.6) 0%, transparent 45%);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      color: #1e1e2f;
+      line-height: 1.5;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.08), 0 4px 18px rgba(0, 0, 0, 0.02);
+      border-radius: 2.5rem;
+      padding: 3.5rem 2.5rem;
+      max-width: 680px;
+      width: 100%;
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.005);
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      background: #eaeef9;
+      color: #2d3b5e;
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(70, 100, 180, 0.1);
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 10vw, 4rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+      background: linear-gradient(135deg, #1e1e2f 0%, #3a3a5a 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .highlight {
+      position: relative;
+      display: inline-block;
+    }
+
+    .highlight::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0.1em;
+      width: 100%;
+      height: 0.2em;
+      background: rgba(180, 200, 255, 0.5);
+      border-radius: 4px;
+      z-index: -1;
+    }
+
+    .subhead {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #4a4a6a;
+      max-width: 420px;
+      margin: 0 auto 2.25rem auto;
+      padding: 0 0.5rem;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      color: #a0a0b8;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+    }
+
+    .divider-line {
+      height: 1px;
+      width: 50px;
+      background: #d0d0e0;
+      border-radius: 2px;
+    }
+
+    .progress-container {
+      width: 80%;
+      max-width: 320px;
+      height: 6px;
+      background: #e4e4ee;
+      border-radius: 20px;
+      margin: 0 auto 2rem auto;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      width: 68%;
+      height: 100%;
+      background: linear-gradient(90deg, #8899d4, #6c7fc0);
+      border-radius: 20px;
+      animation: subtlePulse 2.5s infinite alternate ease-in-out;
+    }
+
+    @keyframes subtlePulse {
+      0% { opacity: 0.8; width: 68%; }
+      100% { opacity: 1; width: 72%; }
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #3b3b5c;
+      background: #ffffffcc;
+      border: 1px solid #e2e2f0;
+      backdrop-filter: blur(4px);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      font-size: 1.3rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    }
+
+    .social-link:hover {
+      background: #ffffff;
+      border-color: #b0b8e0;
+      color: #1e1e3a;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 20px -10px rgba(80, 100, 180, 0.3);
+    }
+
+    .social-link svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+
+    .footer-note {
+      margin-top: 2.5rem;
+      font-size: 0.85rem;
+      color: #8888a0;
+      letter-spacing: 0.2px;
+    }
+
+    .footer-note span {
+      font-weight: 500;
+      color: #5e5e7a;
+    }
+
+    /* simple responsive */
+    @media (max-width: 480px) {
+      .card {
+        padding: 2.5rem 1.5rem;
+        border-radius: 2rem;
+      }
+
+      .subhead {
+        font-size: 1rem;
+      }
+
+      .social-link {
+        width: 44px;
+        height: 44px;
+      }
+
+      .social-link svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="badge">✧  under construction  ✧</div>
+    
+    <h1>
+      <span class="highlight">Coming</span> soon
+    </h1>
+    
+    <p class="subhead">
+      I'm crafting something thoughtful — a portfolio & blog where I'll share projects, ideas, and experiments.
+    </p>
+
+    <!-- subtle progress indicator (purely decorative) -->
+    <div class="progress-container">
+      <div class="progress-fill"></div>
+    </div>
+
+    <div class="divider">
+      <span class="divider-line"></span>
+      <span>✦</span>
+      <span class="divider-line"></span>
+    </div>
+
+    <div class="social-links">
+      <!-- GitHub -->
+      <a href="https://github.com/Drxyd" class="social-link" aria-label="GitHub" title="GitHub (coming soon)">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.26.82-.58 0-.287-.01-1.05-.015-2.06-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.082-.73.082-.73 1.205.085 1.838 1.237 1.838 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.468-2.38 1.235-3.22-.123-.3-.535-1.52.117-3.16 0 0 1.008-.322 3.3 1.23.96-.267 1.98-.4 3-.405 1.02.005 2.04.138 3 .405 2.29-1.552 3.297-1.23 3.297-1.23.653 1.64.24 2.86.118 3.16.768.84 1.233 1.91 1.233 3.22 0 4.61-2.804 5.62-5.476 5.92.43.37.824 1.102.824 2.22 0 1.602-.015 2.894-.015 3.287 0 .322.216.698.83.578C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/>
+        </svg>
+      </a>
+      <!-- Twitter / X (simple) -->
+      <a href="#" class="social-link" aria-label="Twitter / X" title="Twitter / X (coming soon)">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+      </a>
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/humphrey-kganakga-933263154/" class="social-link" aria-label="LinkedIn" title="LinkedIn (coming soon)">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C0.792 0 0 0.774 0 1.729v20.542C0 23.227 0.792 24 1.771 24h20.451c0.979 0 1.771-0.773 1.771-1.729V1.729C24 0.774 23.204 0 22.225 0z"/>
+        </svg>
+      </a>
+      <!-- Email -->
+      <a href="xydhumphrey1@gmail.com" class="social-link" aria-label="Email" title="Email (coming soon)">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1.5 4.5h21a.5.5 0 0 1 .5.5v14a.5.5 0 0 1-.5.5h-21a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5Zm1.5 1.8 8.94 6.12a1 1 0 0 0 1.12 0L21 6.3v11.7H3V6.3Z"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="footer-note">
+      <span>✧</span>  launching later this year  <span>✧</span>
+    </div>
+  </div>
+</body>
+</html>
